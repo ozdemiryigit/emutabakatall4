@@ -294,14 +294,14 @@
 
         MOVE-CORRESPONDING gs_bsid TO gs_bsid_temp.
 
-        CASE gs_bsid-shkzg.
-          WHEN 'H'.
-            gs_bsid_temp-dmbtr = gs_cform_temp-dmbtr = 0 - gs_bsid-dmbtr.
-            gs_bsid_temp-wrbtr = gs_cform_temp-wrbtr = 0 - gs_bsid-wrbtr.
-          WHEN OTHERS.
+*        CASE gs_bsid-shkzg.
+*          WHEN 'H'.
+*            gs_bsi<d_temp-dmbtr = gs_cform_temp-dmbtr = 0 - gs_bsid-dmbtr.
+*            gs_bsid_temp-wrbtr = gs_cform_temp-wrbtr = 0 - gs_bsid-wrbtr.
+*          WHEN OTHERS.>
             gs_cform_temp-dmbtr = gs_bsid-dmbtr.
             gs_cform_temp-wrbtr = gs_bsid-wrbtr.
-        ENDCASE.
+*        ENDCASE.
 
         gs_cform_temp-waers = gs_bsid-waers.
 
@@ -616,14 +616,14 @@
 
         MOVE-CORRESPONDING ls_bsik TO gs_bsid_temp.
 
-        CASE ls_bsik-shkzg.
-          WHEN 'H'.
-            gs_bsid_temp-dmbtr = gs_cform_temp-dmbtr = 0 - ls_bsik-dmbtr.
-            gs_bsid_temp-wrbtr = gs_cform_temp-wrbtr = 0 - ls_bsik-wrbtr.
-          WHEN OTHERS.
+*        CASE ls_bsik-shkzg.
+*          WHEN 'H'.
+*            gs_bsid_temp-dmbtr = gs_cform_temp-dmbtr = 0 - ls_bsik-dmbtr.
+*            gs_bsid_temp-wrbtr = gs_cform_temp-wrbtr = 0 - ls_bsik-wrbtr.
+*          WHEN OTHERS.
             gs_cform_temp-dmbtr = ls_bsik-dmbtr.
             gs_cform_temp-wrbtr = ls_bsik-wrbtr.
-        ENDCASE.
+*        ENDCASE.
 
         gs_cform_temp-waers = ls_bsik-waers.
 
