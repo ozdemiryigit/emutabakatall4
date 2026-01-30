@@ -298,6 +298,7 @@
 
           WHERE (  clearingdate    GE @gv_last_date  OR ClearingJournalEntry = '' )
             AND companycode     IN @s_bukrs
+            AND fiscalyear     EQ @p_gjahr
             AND businessarea    IN @s_gsber  "hkizilkaya
             AND accountingdocument IN @lt_belnr
             AND accountingdocumenttype IN @lt_blart
@@ -439,6 +440,7 @@
 *          WHERE documentdate    GE @gv_last_date
           WHERE (  clearingdate    GE @gv_last_date  OR ClearingJournalEntry = '' )
             AND companycode      IN @s_bukrs
+            AND fiscalyear     EQ @p_gjahr
             AND businessarea     IN @s_gsber  "hkizilkaya
             AND accountingdocument IN @lt_belnr
             AND accountingdocumenttype IN @lt_blart
@@ -590,6 +592,7 @@
 *          WHERE documentdate    GE @gv_last_date
           WHERE (  clearingdate    GE @gv_last_date  OR ClearingJournalEntry = '' )
             AND companycode     IN @s_bukrs
+            AND fiscalyear     EQ @p_gjahr
             AND businessarea    IN @s_gsber
             AND accountingdocument IN @lt_belnr
             AND accountingdocumenttype IN @lt_blart
@@ -686,6 +689,7 @@
 *          WHERE documentdate    GE @gv_last_date
           WHERE (  clearingdate    GE @gv_last_date  OR ClearingJournalEntry = '' )
             AND companycode     IN @s_bukrs
+            AND fiscalyear     EQ @p_gjahr
             AND businessarea    IN @s_gsber
             AND accountingdocument IN @lt_belnr
             AND accountingdocumenttype IN @lt_blart
@@ -744,6 +748,9 @@
 
       ENDCASE.
     ENDIF.
+
+    DELETE ADJACENT DUPLICATES FROM gt_bsik COMPARING belnr lifnr gjahr.
+    DELETE ADJACENT DUPLICATES FROM gt_bsid COMPARING belnr kunnr gjahr.
 
     modify_account_group( ).
     modify_cform_data( ).
