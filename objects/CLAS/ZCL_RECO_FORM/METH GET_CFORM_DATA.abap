@@ -749,8 +749,8 @@
       ENDCASE.
     ENDIF.
 
-    DELETE ADJACENT DUPLICATES FROM gt_bsik COMPARING belnr lifnr gjahr.
-    DELETE ADJACENT DUPLICATES FROM gt_bsid COMPARING belnr kunnr gjahr.
+*    DELETE ADJACENT DUPLICATES FROM gt_bsik COMPARING belnr lifnr gjahr.
+*    DELETE ADJACENT DUPLICATES FROM gt_bsid COMPARING belnr kunnr gjahr.
 
     modify_account_group( ).
     modify_cform_data( ).
