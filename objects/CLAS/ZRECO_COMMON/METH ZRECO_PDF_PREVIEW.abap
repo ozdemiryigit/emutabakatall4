@@ -1113,6 +1113,8 @@
       IF sy-subrc EQ 0.
 
         ls_data-mail = gs_r001-responder_mail.
+        ls_data-name = |{ gs_r001-responder_name } { gs_r001-responder_surname }| .
+*        ls_data-surname = gs_r001-responder_surname.
       ENDIF.
 
     TRY.
