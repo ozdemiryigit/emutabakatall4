@@ -378,6 +378,39 @@
    },
    {
     "TABNAME":"ZRECO_RCAR",
+    "FIELDNAME":"RESPONDER_MAIL",
+    "AS4LOCAL":"N",
+    "AS4VERS":0,
+    "POSITION":16,
+    "KEYFLAG":"",
+    "MANDATORY":"",
+    "ROLLNAME":"",
+    "CHECKTABLE":"",
+    "ADMINFIELD":"0",
+    "INTTYPE":"g",
+    "INTLEN":8,
+    "REFTABLE":"",
+    "PRECFIELD":"",
+    "REFFIELD":"",
+    "CONROUT":"",
+    "NOTNULL":"",
+    "DATATYPE":"STRG",
+    "LENG":0,
+    "DECIMALS":0,
+    "DOMNAME":"",
+    "SHLPORIGIN":"",
+    "TABLETYPE":"",
+    "DEPTH":0,
+    "COMPTYPE":"",
+    "REFTYPE":"",
+    "LANGUFLAG":"",
+    "DBPOSITION":0,
+    "ANONYMOUS":"",
+    "OUTPUTSTYLE":0,
+    "SRS_ID":0
+   },
+   {
+    "TABNAME":"ZRECO_RCAR",
     "FIELDNAME":"RESPONDER_NAME",
     "AS4LOCAL":"N",
     "AS4VERS":0,
@@ -586,6 +619,13 @@
     "AS4LOCAL":"N",
     "FIELDNAME":"MANDT",
     "DDTEXT":""
+   },
+   {
+    "TABNAME":"ZRECO_RCAR",
+    "DDLANGUAGE":"T",
+    "AS4LOCAL":"N",
+    "FIELDNAME":"RESPONDER_MAIL",
+    "DDTEXT":""
    }
   ]
  },
@@ -614,7 +654,8 @@
     "JAVAONLY":"",
     "ROWORCOLST":"C",
     "SHARINGTYPE":"",
-    "LOAD_UNIT":""
+    "LOAD_UNIT":"",
+    "ALLOWED_FOR_AMDP_WRITE":""
    }
   ]
  },

@@ -223,14 +223,14 @@
     "CHECKTABLE":"",
     "ADMINFIELD":"0",
     "INTTYPE":"P",
-    "INTLEN":6,
+    "INTLEN":11,
     "REFTABLE":"ZRECO_TMPC",
     "PRECFIELD":"",
     "REFFIELD":"CURRENCY",
     "CONROUT":"",
     "NOTNULL":"",
     "DATATYPE":"CURR",
-    "LENG":11,
+    "LENG":20,
     "DECIMALS":2,
     "DOMNAME":"",
     "SHLPORIGIN":"",
@@ -1182,7 +1182,8 @@
     "JAVAONLY":"",
     "ROWORCOLST":"C",
     "SHARINGTYPE":"",
-    "LOAD_UNIT":""
+    "LOAD_UNIT":"",
+    "ALLOWED_FOR_AMDP_WRITE":""
    }
   ]
  },

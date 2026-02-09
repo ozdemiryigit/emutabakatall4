@@ -1118,7 +1118,8 @@
     "JAVAONLY":"",
     "ROWORCOLST":"C",
     "SHARINGTYPE":"",
-    "LOAD_UNIT":""
+    "LOAD_UNIT":"",
+    "ALLOWED_FOR_AMDP_WRITE":""
    }
   ]
  },

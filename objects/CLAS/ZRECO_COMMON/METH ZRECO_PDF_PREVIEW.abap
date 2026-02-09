@@ -1105,45 +1105,55 @@
       ls_data-cevaplama_tarihi = gs_r000-erdat.
       ls_data-cevap_not = gs_r000-mtext.
 
-      TRY.
-          CALL TRANSFORMATION zreco_form_pdf_takip
-          SOURCE form = ls_data
-          RESULT XML DATA(lv_xml).
+      READ TABLE gt_r001 INTO gs_r001 WHERE bukrs EQ gs_v001-bukrs
+                                    AND gsber EQ gs_v001-gsber
+                                    AND mnumber EQ gs_v001-mnumber
+                                    AND monat EQ gs_v001-monat
+                                    AND gjahr EQ gs_v001-gjahr.
+      IF sy-subrc EQ 0.
 
-        CATCH cx_root INTO DATA(lo_root).
-      ENDTRY.
-
-      DATA(lv_base64_data) = cl_web_http_utility=>encode_x_base64( unencoded = lv_xml ).
-
-
-      TRY.
-
-          DATA lo_ads_util  TYPE REF TO zreco_cl_ads_util.
-          CREATE OBJECT lo_ads_util.
-
-          lo_ads_util->call_adobe(
-            EXPORTING
-              iv_form_name            = 'ZETR_DECO_AF_CARIHESAPMUT'
-              iv_template_name        = 'CARIHESAPMUTABAKATI'
-              iv_xml                  = lv_base64_data "base64 verisi
-              iv_adobe_scenario       = 'ZCLDOBJ_CS_ADS'
-              iv_adobe_system         = 'ZCLDOBJ_CSYS_ADS'
-              iv_adobe_service_id     = 'ZCLDOBJ_OS_ADS_REST'
-            IMPORTING
-              ev_pdf                  = DATA(lv_pdf)
-              ev_response_code        = DATA(lv_res_c)
-              ev_response_text        = DATA(lv_res_t)
-          ).
-        CATCH cx_http_dest_provider_error.
-          "handle exception
-      ENDTRY.
-
-      IF lv_pdf IS NOT INITIAL.
-        ev_pdf = lv_pdf.
+        ls_data-mail = gs_r001-responder_mail.
       ENDIF.
 
+    TRY.
+        CALL TRANSFORMATION zreco_form_pdf_takip
+        SOURCE form = ls_data
+        RESULT XML DATA(lv_xml).
 
-    ENDLOOP.
+      CATCH cx_root INTO DATA(lo_root).
+    ENDTRY.
+
+    DATA(lv_base64_data) = cl_web_http_utility=>encode_x_base64( unencoded = lv_xml ).
 
 
-  ENDMETHOD.
+    TRY.
+
+        DATA lo_ads_util  TYPE REF TO zreco_cl_ads_util.
+        CREATE OBJECT lo_ads_util.
+
+        lo_ads_util->call_adobe(
+          EXPORTING
+            iv_form_name            = 'ZETR_DECO_AF_CARIHESAPMUT'
+            iv_template_name        = 'CARIHESAPMUTABAKATI'
+            iv_xml                  = lv_base64_data "base64 verisi
+            iv_adobe_scenario       = 'ZCLDOBJ_CS_ADS'
+            iv_adobe_system         = 'ZCLDOBJ_CSYS_ADS'
+            iv_adobe_service_id     = 'ZCLDOBJ_OS_ADS_REST'
+          IMPORTING
+            ev_pdf                  = DATA(lv_pdf)
+            ev_response_code        = DATA(lv_res_c)
+            ev_response_text        = DATA(lv_res_t)
+        ).
+      CATCH cx_http_dest_provider_error.
+        "handle exception
+    ENDTRY.
+
+    IF lv_pdf IS NOT INITIAL.
+      ev_pdf = lv_pdf.
+    ENDIF.
+
+
+  ENDLOOP.
+
+
+ENDMETHOD.

@@ -270,6 +270,7 @@
           <lfs_cform>-ltext   = ls_htxt-customer_text.
           <lfs_cform>-responder_name = ls_answer_c-data-name.
           <lfs_cform>-responder_surname = ls_answer_c-data-surname.
+          <lfs_cform>-responder_mail = ls_answer_c-data-mail.
         ENDLOOP.
 
       ENDIF.
@@ -1063,6 +1064,7 @@
                 gs_out-r_waers = gs_r001-waers.
                 gs_out-responder_name = gs_r001-responder_name.
                 gs_out-responder_surname = gs_r001-responder_surname.
+                gs_out-responder_mail = gs_r001-responder_surname.
               ENDIF.
 
               READ TABLE gt_c002 INTO gs_c002 WITH KEY bukrs = gs_c001-bukrs
@@ -1488,6 +1490,7 @@
               gs_out-r_tvste = gs_r002-tvste.
               gs_out-responder_name = gs_r002-responder_name.
               gs_out-responder_surname = gs_r002-responder_surname.
+*              gs_out-responder_mail = gs_r002-.
             ENDIF.
 
 
