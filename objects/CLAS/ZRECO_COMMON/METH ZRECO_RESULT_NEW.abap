@@ -315,10 +315,11 @@
               MOVE-CORRESPONDING et_cform TO lt_cform.
               MOVE-CORRESPONDING lt_head TO lt_cform.
               MOVE-CORRESPONDING lt_versiyon TO lt_cform.
-              <lfs_cform>-responder_mail = <lfs_cform>-responder_mail.
-              <lfs_cform>-responder_name = <lfs_cform>-responder_name.
-              <lfs_cform>-responder_surname = <lfs_cform>-responder_surname.
-
+              LOOP AT lt_cform ASSIGNING FIELD-SYMBOL(<fs_c>).
+                <fs_c>-responder_mail = <lfs_cform>-responder_mail.
+                <fs_c>-responder_name = <lfs_cform>-responder_name.
+                <fs_c>-responder_surname = <lfs_cform>-responder_surname.
+              ENDLOOP.
 *              lt_cform-version = lv_versiyon.
               lv_versiyon = lv_versiyon + 1.
               IF ls_head-xno_local_curr IS INITIAL.
