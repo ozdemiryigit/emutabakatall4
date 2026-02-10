@@ -1064,7 +1064,7 @@
                 gs_out-r_waers = gs_r001-waers.
                 gs_out-responder_name = gs_r001-responder_name.
                 gs_out-responder_surname = gs_r001-responder_surname.
-                gs_out-responder_mail = gs_r001-responder_surname.
+                gs_out-responder_mail = gs_r001-responder_mail.
               ENDIF.
 
               READ TABLE gt_c002 INTO gs_c002 WITH KEY bukrs = gs_c001-bukrs
