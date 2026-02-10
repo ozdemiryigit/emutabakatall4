@@ -319,6 +319,9 @@
                 <fs_c>-responder_mail = <lfs_cform>-responder_mail.
                 <fs_c>-responder_name = <lfs_cform>-responder_name.
                 <fs_c>-responder_surname = <lfs_cform>-responder_surname.
+                <fs_c>-wrbtr = <lfs_cform>-wrbtr_c.
+                <fs_c>-waers = <lfs_cform>-waers_c.
+                <fs_c>-xsum = 'X'.
               ENDLOOP.
 *              lt_cform-version = lv_versiyon.
               lv_versiyon = lv_versiyon + 1.
@@ -332,10 +335,10 @@
               AND <lfs_cform>-wrbtr_c EQ 0.
                 <lfs_cform>-wrbtr_c = <lfs_cform>-dmbtr_c.
               ENDIF.
-              APPEND INITIAL LINE TO lt_cform ASSIGNING FIELD-SYMBOL(<lft_cform>).
-              <lft_cform>-wrbtr = <lfs_cform>-wrbtr_c.
-              <lft_cform>-waers = <lfs_cform>-waers_c.
-              <lft_cform>-xsum = 'X'.
+*              APPEND INITIAL LINE TO lt_cform ASSIGNING FIELD-SYMBOL(<lft_cform>).
+*              <lft_cform>-wrbtr = <lfs_cform>-wrbtr_c.
+*              <lft_cform>-waers = <lfs_cform>-waers_c.
+*              <lft_cform>-xsum = 'X'.
             ENDLOOP.
           ENDIF.
 
