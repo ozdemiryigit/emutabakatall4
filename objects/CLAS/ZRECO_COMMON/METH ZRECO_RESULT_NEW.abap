@@ -312,9 +312,9 @@
           IF ls_head-mtype NE 'B'. "B formu mutabakatı değilse
             LOOP AT et_cform ASSIGNING FIELD-SYMBOL(<lfs_cform>) WHERE waers_c IS NOT INITIAL.
               CLEAR lt_cform.
-              MOVE-CORRESPONDING et_cform TO lt_cform.
               MOVE-CORRESPONDING lt_head TO lt_cform.
               MOVE-CORRESPONDING lt_versiyon TO lt_cform.
+              MOVE-CORRESPONDING et_cform TO lt_cform.
 *              lt_cform-version = lv_versiyon.
               lv_versiyon = lv_versiyon + 1.
               IF ls_head-xno_local_curr IS INITIAL.
